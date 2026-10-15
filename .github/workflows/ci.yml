@@ -1,0 +1,23 @@
+
+name: DevOps CI Pipeline
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Verify Project
+        run: |
+          echo "Starting CI pipeline"
+          test -f index.html
+          echo "HTML file found successfully"
+
+      - name: Pipeline Success
+        run: echo "CI/CD pipeline completed successfully"
